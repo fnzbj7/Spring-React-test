@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 import './App.css';
 import Employee from './Employee/Employee';
 
@@ -6,12 +7,28 @@ class App extends Component {
 
   state = {
     employees: [
-      { name: 'Peti', age: 30},
-      { name: 'Sanyika', age: 24}
+      { id:1, name: 'Peti', age: 30},
+      { id:2, name: 'Sanyika', age: 24}
     ]
   };
 
-  render() {return (
+  componentDidMount() {
+    // axios.post('http://localhost:8080/employees', {"name" : "test4"}).then(response => {
+    //   console.log(response);
+    //   console.log('lementve');
+    // });
+      axios.get('http://localhost:8080/employees').then(response => {
+        this.setState({employees: response.data});
+        console.log(response);
+      });
+  }
+
+  render() {
+    const employees = this.state.employees.map(employee => {
+      return <Employee key={employee.id} name={employee.name}></Employee>
+    });
+    
+    return (
     <div className='App'>
       <form className='form-width m-auto'>
         <div className='form-group'>
@@ -46,7 +63,7 @@ class App extends Component {
         </button>
       </form>
       <hr />
-      <Employee name={this.state.employees[0].name} age={this.state.employees[0].age}>Csak megjelenik</Employee>
+      {employees}
     </div>
   );
   }
