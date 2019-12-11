@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const employee = props => {
-  return (
-    <div>
-      <p>
-        I'm a {props.name} and {props.age}
-      </p>
-      <p>{props.children}</p>
-    </div>
-  );
-};
+class Employee extends Component {
 
-export default employee;
+  
+
+  render() {
+    return (
+      <div>
+        <p>
+          I'm {this.props.name} and {this.props.age} year old.<br/>
+          My email address is: {this.props.email}
+        </p>
+        <p>{this.props.children}</p>
+        <button onClick={this.props.deleteHandler} className="btn btn-danger">Delete</button>
+      </div>
+    );
+  }
+
+}
+
+export default Employee;
