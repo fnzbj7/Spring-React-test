@@ -1,13 +1,10 @@
 # Spring-React-test
 
-Projekt Leírása:
+## About this project:
 
-Egy Spring-boot applikációból és egy react applikációból áll a git repository.
+There is two service a Spring backend (/spring-boot) and a react frontend (/react-app). This is a small showcase project.
 
-Spring-boot indítása:
+## How to install:
 
-A gyökér könyvtárban a 'mvn clean install' + 'mvn spring-boot:run' parancsokkal tudjuk feltelepíteni a kellő programokat és utána elindítani. Egy Tomcat szerver indul el, ami a localhost:8080 -on lehet elérni
-Az aplikávió Java 1.8-al készült
-
-React:
-a gyökérben található 'react-app' mappába be kell lépni és ott 'npm install' parancsot kell használni. Amint a telepítés végzett, a 'npm start' paranccsal el lehet indítani. Az applikáció a localhost:3000 -es porton fog futni.
+**Backend:** Step into the /spring-boot folder and run 'mvn spring-boot:run'. It will be running on http://localhost:8080 (This project was build with Java 8)
+**Frontend:** Step into the /react-app folder, run 'npm install' first and then with 'npm start' it will be running on http://localhost:3000
